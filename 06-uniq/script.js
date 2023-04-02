@@ -8,7 +8,15 @@
 */
 
 function uniq(arr) {
-    // Напишите код здесь
+    const newArr = [];
+
+    for (let i = 0; i < arr.length ; i++) {
+        if (newArr.indexOf(arr[i]) === -1 && arr[i] !== '') {
+            newArr.push(arr[i]);
+        }
+    }
+    
+    return newArr;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

@@ -12,13 +12,45 @@
  * и пробелов в аргументе быть не может.
  * 
 */
+// debugger;
 
 function palindrome(str) {
-    // Напишите код здесь
+
+    if (str === '') {
+        return true;
+    }
+    
+    // Удаление из строки различных символов.
+    const symbols = [' ', '!', '?', ',', '.', ';', ':'];
+
+    str = str.split('');
+
+    for (let i = 0; i < str.length; i++) {
+        for (let j = 0; j < symbols.length; j++) {
+            if (str[i] === symbols[j]) {
+                delete str[i];
+            }
+        }
+    }
+
+    str = str.filter(Boolean);
+    str = str.join('');
+
+    // Преобразование строки к нижнему регистру.
+    str = str.toLowerCase();
+
+    // Проверка - является ли строка палиндромом.
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === str[(str.length - 1) - i]) {
+            return true;
+        } else {
+            return false;
+        } 
+    }
 }
 
-// Протестируйте решение, вызывая функцию с разными аргументами:
-
+// // Протестируйте решение, вызывая функцию с разными аргументами:
+console.log(palindrome(''));
 console.log(palindrome('топот')); // должно быть true
 console.log(palindrome('Saippuakivikauppias')); // true
 console.log(palindrome('привет')); // false
@@ -30,3 +62,5 @@ console.log(palindrome('привет')); // false
  * palindrome('О, лета тело!'); // true
  * 
 */
+
+

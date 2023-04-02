@@ -7,11 +7,30 @@
  * 
 */
 
+
 function intersection(arr1, arr2) {
-    // Напишите код здесь
+    const firstArr = [];
+
+    for (let elemArr1 of arr1) {
+        for (let elemArr2 of arr2) {
+            if (elemArr1 === elemArr2) {
+                firstArr.push(elemArr1);
+            }
+        }
+    }
+
+    const secondArr = [];
+
+    for (let i = 0; i < firstArr.length; i++) {
+        if ((secondArr.indexOf(firstArr[i]) === -1) && (firstArr[i] !== '')) {
+            secondArr.push(firstArr[i]);
+        }
+    }
+
+    return secondArr;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
 
-console.log(intersection([1, 5, 4, 2], [8, 91, 4, 1, 3])); // [4, 1]
+console.log(intersection([1, 5, 4, 2, 2, 2, 3, 4, 5, 5, 6], [8, 91, 4, 1, 3, 4, 5, 5, 6, 4, 5,])); // [4, 1]
 console.log(intersection([1, 5, 4, 2], [7, 12])); // []

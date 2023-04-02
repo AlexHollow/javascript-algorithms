@@ -7,10 +7,28 @@
 */
 
 function primes(num) {
-    // Напишите код здесь
+
+    const arr = [];
+
+    if (num < 2) {
+        return arr;
+    }
+
+next: 
+    for (let i = 2; i <= num; i++) {
+        for (let j = 2; j < i; j++) {
+            if (i % j === 0) {
+                continue next;
+            }
+        }
+        arr.push(i);
+    }
+
+    return arr;
 }
 
-// Протестируйте решение, вызывая функцию с разными аргументами:
 
+// Протестируйте решение, вызывая функцию с разными аргументами:
+console.log(primes(200));
 console.log(primes(6)); // [2, 3, 5]
 console.log(primes(17)); // [2, 3, 5, 7, 11, 13, 17]

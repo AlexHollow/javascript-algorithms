@@ -8,8 +8,12 @@
  *
 */
 
+
 function reverseWords(str) {
-    // Напишите код здесь
+    str = str.split(' ');
+    str = str.reverse();
+    str = str.join(' ');
+    return str;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
